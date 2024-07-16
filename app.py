@@ -26,7 +26,7 @@ def clean_data(obj):
 def image_to_base64(image):
     image_bytes = image.stream.read()
     base64_image = base64.b64encode(image_bytes).decode('utf-8')
-    return base64_image
+    return "data:image/png;base64," + base64_image
 
 @app.route("/deepface", methods=["POST"])
 def process_image():
