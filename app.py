@@ -34,7 +34,8 @@ def process_image():
     try:
         objs = DeepFace.analyze(
             img_path=image_to_base64(image),
-            actions=['age', 'gender', 'race', 'emotion'],
+            detector_backend='retinaface',
+            actions=['age', 'gender', 'race'],
         )
         return jsonify([clean_data(obj) for obj in objs])
     except Exception as e:
